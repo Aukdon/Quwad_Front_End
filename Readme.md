@@ -1,9 +1,8 @@
-# Quwad
-Application for organising and participating in tournamanets. <br>
-<br>
-User sign up link to particiate in tournaments: [www.quwad.com](https://www.quwad.com) <br>
-Organizer sign up link to organize tournaments: [www.quwad.com/organizersignup](https://www.quwad.com/organizersignup) <br>
-<br>
-A product of [Aukdon](https://www.aukdon.com)<br>
-Developed by [Kumaravel](https://www.kumaravelsundar.com)<br>
-🌏 From Tamil Nadu ♥️
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
