@@ -1,8 +1,14 @@
+import UserForm from "../../components/forms/userForm/userForm.jsx"
 
 function MyProfile(){
+
+    let data ={
+        page: "profile"
+    }
+
     return(
         <div>
-            My profile.
+            <UserForm data={data}/>
         </div>
     )
 }

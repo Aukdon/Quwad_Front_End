@@ -25,7 +25,7 @@ function Layout(){
                     <div className="grid gap-5">
                         <h2 className="text-center font-semibold">Organizer</h2>
                         <ul>
-                            <li><Link to="">Tournaments organized</Link></li>
+                            <li><Link to="/tournamentsiorganized">Tournaments organized</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -41,8 +41,8 @@ function Layout(){
                 <div className="p-2 bg-white border rounded-lg">
                     <ul className="flex justify-between">
                         <li><Link to="/alltournaments">Home</Link></li>
-                        <li><Link to="">Registations</Link></li>
-                        <li><Link to="">Profile</Link></li>
+                        <li><Link to="/myregistrations">Registations</Link></li>
+                        <li><Link to="/myprofile">Profile</Link></li>
                     </ul>
                 </div>
             </section>
