@@ -16,7 +16,7 @@ function TournamentForm(){
             <div>
                 <select className="p-2 border rounded-lg w-full text-center md:text-start" name="gameType" type="text">
                     <option value="">Select Game Type</option>
-                    <option value="traditionalSports">Sports</option>
+                    <option value="sports">Sports</option>
                     <option value="eSports">E Sports</option>
                 </select>
             </div>

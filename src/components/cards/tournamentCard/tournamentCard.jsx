@@ -4,11 +4,15 @@ import { Link, useLocation } from "react-router-dom"
 function TournamentCard(){
 
     let location = useLocation();
-    let [isOrganizer, setIsPrganizer] = useState(false)
+    let [isOrganizer, setIsOrganizer] = useState(false)
+    let [isMyRegistration, setIsMyRegistration] = useState(false)
     
     useEffect(()=>{
         if(location.pathname == "/tournamentsiorganized"){
-            setIsPrganizer(true);
+            setIsOrganizer(true);
+        }
+        if(location.pathname == "/myregistrations"){
+            setIsMyRegistration(true)
         }
     },[])
 
@@ -50,7 +54,7 @@ function TournamentCard(){
                     <p>$500 <span className="hidden sm:inline">registration fee per team</span><span className="sm:hidden">/team</span></p>
                 </div>
                 <div className="flex gap-5">
-                    <Link to="/tournamentDetails/0" className={`${isOrganizer ? "hidden" : ""} p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Register</Link>
+                    <Link to="/tournamentDetails/0" className={`${isOrganizer ? "hidden" : ""} ${isMyRegistration ? "hidden" : ""} p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Register</Link>
                     <button className={`${isOrganizer ? "" : "hidden"} p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Edit</button>
                     <button className={`${isOrganizer ? "" : "hidden"} p-2 bg-white text-[#FF5A5F] rounded-lg border border-[#FF5A5F] transition ease-in-out hover:-translate-y-1`}>Delete</button>
                 </div>

@@ -14,8 +14,9 @@ function Layout(){
 
             {/* Side bar section */}
             <section className="p-5 col-start-2 col-span-2 bg-white border rounded-lg min-h-dvh hidden md:block">
-                <div className="grid gap-5">
-                    <div>
+                <div className="grid gap-20">
+                    <div className="grid gap-5">
+                        <h2 className="text-center font-semibold">Tournaments</h2>
                         <ul className="grid gap-5">
                             <li><Link to="/alltournaments">Tournaments</Link></li>
                             <li><Link to="/myregistrations">My registations</Link></li>
@@ -25,7 +26,7 @@ function Layout(){
                     <div className="grid gap-5">
                         <h2 className="text-center font-semibold">Organizer</h2>
                         <ul>
-                            <li><Link to="/tournamentsiorganized">Tournaments organized</Link></li>
+                            <li><Link to="/tournamentsiorganized">Tournaments</Link></li>
                         </ul>
                     </div>
                 </div>

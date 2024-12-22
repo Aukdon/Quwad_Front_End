@@ -7,8 +7,13 @@ function MyProfile(){
     }
 
     return(
-        <div>
+        <div className="grid gap-5">
             <UserForm data={data}/>
+
+            <div className="p-5 bg-white border rounded-lg">
+                <p>For any enquiries.</p>
+                <p>Contact us: </p>
+            </div>
         </div>
     )
 }
