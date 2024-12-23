@@ -19,7 +19,7 @@ function AppRoutes(){
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<AllTournaments/>}/>
                     <Route path="/alltournaments" element={<AllTournaments/>}/>
-                    <Route path="/tournamentDetails/:id" element={<TournamentDetails/>}/>
+                    <Route path="/tournamentdetails/:id" element={<TournamentDetails/>}/>
                     <Route path="/myregistrations" element={<MyRegistrations/>}/>
                     <Route path="/myprofile" element={<MyProfile/>}/>
                     <Route path="/tournamentsiorganized" element={<TournamentsIOrganized/>}/>

@@ -38,7 +38,7 @@ function Layout(){
             </section>
 
             {/* Mobile menu */}
-            <section className="p-5 md:hidden fixed bottom-0 left-0 right-0">
+            <section className="mx-5 pb-5 md:hidden fixed bottom-0 left-0 right-0 bg-white">
                 <div className="p-2 bg-white border rounded-lg">
                     <ul className="flex justify-between">
                         <li><Link to="/alltournaments">Home</Link></li>
