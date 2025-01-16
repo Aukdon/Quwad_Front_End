@@ -1,9 +1,29 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { signInAPI } from "../../api/authentication.js";
 
 function SignIn(){
 
-    function handleSignIn(e){
+    let [signInCredentials,setSignInCredentials] = useState({});
+    let navigate = useNavigate();
+
+    function handleChange(e){
+        setSignInCredentials({
+            ...signInCredentials,
+            [e.target.name] : e.target.value,
+        });
+    };
+
+    async function handleSignIn(e){
         e.preventDefault();
+        // console.log(signInCredentials);
+        let data = await signInAPI(signInCredentials);
+        // console.log(data);
+        if(data.code){
+            navigate("/");
+        }else{
+            alert(data.msg);
+        }
     }
 
     return(
@@ -19,10 +39,10 @@ function SignIn(){
                 <div>
                     <form action="submit" className="grid gap-5">
                         <div>
-                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="emailId" type="text" placeholder="Email Id"/>
+                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="emailId" type="text" placeholder="Email Id" value={signInCredentials.emailId || ""} onChange={handleChange}/>
                         </div>
                         <div>
-                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="password" type="password" placeholder="Password"/>
+                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="password" type="password" placeholder="Password" value={signInCredentials.password || ""} onChange={handleChange}/>
                         </div>
                         <div className="flex justify-center">
                             <button className="p-2 rounded-lg bg-[#4C51BF] text-white" onClick={handleSignIn}>Sign in</button>

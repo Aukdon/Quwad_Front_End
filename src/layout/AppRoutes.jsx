@@ -8,6 +8,7 @@ import MyRegistrations from "../pages/myRegistrations/MyRegistrations.jsx"
 import MyProfile from "../pages/myProfile/MyProfile.jsx"
 import TournamentsIOrganized from "../pages/tournamentsIOrganized/TournamentsIOrganize.jsx"
 import TournamentDetails from "../pages/tournamentDetails/TournamentDetails.jsx"
+import TournamentManage from "../pages/tournamentManage/TournamentManage.jsx"
 
 function AppRoutes(){
     return(
@@ -23,6 +24,7 @@ function AppRoutes(){
                     <Route path="/myregistrations" element={<MyRegistrations/>}/>
                     <Route path="/myprofile" element={<MyProfile/>}/>
                     <Route path="/tournamentsiorganized" element={<TournamentsIOrganized/>}/>
+                    <Route path="/tournamentmanage" element={<TournamentManage/>}/>
                 </Route>
 
                 {/* Public routes */}

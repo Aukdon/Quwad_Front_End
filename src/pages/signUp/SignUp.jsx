@@ -1,18 +1,40 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signUpAPI } from "../../api/authentication.js";
 
 function SignUp(){
 
     let [isOrganizerValue, setIsOrganizerValue] = useState(false)
 
+    let [userInput, setUserInput] = useState({isOrganizer:false})
+
+    let navigate = useNavigate();
+
     function handleOrganizerValue(){
         setIsOrganizerValue(!isOrganizerValue);
+        
+        setUserInput({...userInput, 
+            isOrganizer : (!userInput.isOrganizer)
+        });
     }
 
-    function handleSignUp(e){
+    async function handleSignUp(e){
         e.preventDefault();
-        console.log(isOrganizerValue);
-        
+        // console.log(userInput);
+        let data = await signUpAPI(userInput);
+        console.log(data);
+        if(data.code){
+            navigate("/signin")
+        }else{
+            alert(data.msg);
+        }
+    }
+
+    function handleChange(e){
+        setUserInput({
+            ...userInput,
+            [e.target.name] : e.target.value,
+        });
     }
 
     return(
@@ -28,13 +50,13 @@ function SignUp(){
                 <div>
                     <form action="submit" className="grid gap-5">
                         <div>
-                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="fullName" type="text" placeholder="Full name"/>
+                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="fullName" type="text" placeholder="Full name" value={userInput.fullName || ""} onChange={handleChange}/>
                         </div>
                         <div>
-                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="emailId" type="text" placeholder="Email Id"/>
+                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="emailId" type="text" placeholder="Email Id" value={userInput.emailId || ""} onChange={handleChange}/>
                         </div>
                         <div>
-                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="password" type="password" placeholder="Password"/>
+                            <input className="p-2 border rounded-lg w-full text-center md:text-start" name="password" type="password" placeholder="Password" value={userInput.password || ""} onChange={handleChange}/>
                         </div>
                         <div className="px-5 flex gap-5">
                             <input className="p-2 border rounded-lg" name="isOrganizer" type="checkbox" onChange={handleOrganizerValue}/>
@@ -42,16 +64,16 @@ function SignUp(){
                         </div>
                         <div className={`${isOrganizerValue ? "" : "hidden"} grid gap-5`}>
                             <div>
-                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="governmentId" type="text" placeholder="Government Id"/>
+                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="governmentId" type="text" placeholder="Government Id" value={userInput.governmentId || ""} onChange={handleChange}/>
                             </div>
                             <div>
-                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="mobileNumber" type="text" placeholder="Mobile number"/>
+                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="mobileNumber" type="text" placeholder="Mobile number" value={userInput.mobileNumber || ""} onChange={handleChange}/>
                             </div>
                             <div>
-                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="bankAccountNumber" type="text" placeholder="Bank account number"/>
+                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="bankAccountNumber" type="text" placeholder="Bank account number" value={userInput.bankAccountNumber || ""} onChange={handleChange}/>
                             </div>
                             <div>
-                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="bankCode" type="text" placeholder="IFSC or SWIFT number"/>
+                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="bankCode" type="text" placeholder="IFSC or SWIFT number" value={userInput.bankCode || ""} onChange={handleChange}/>
                             </div>
                         </div>
                         <div className="flex justify-center">

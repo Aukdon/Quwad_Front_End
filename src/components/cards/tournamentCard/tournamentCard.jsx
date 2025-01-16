@@ -7,6 +7,7 @@ function TournamentCard(){
     let [isOrganizer, setIsOrganizer] = useState(false)
     let [isMyRegistration, setIsMyRegistration] = useState(false)
     let [isTournamentDetails, setIsTournamentDetails] = useState(false)
+    let [isTournamentManage, setIsTournamentManage] = useState(false)
     
     
     useEffect(()=>{
@@ -18,6 +19,9 @@ function TournamentCard(){
         }
         if(location.pathname.slice(0,18) == "/tournamentdetails"){
             setIsTournamentDetails(true);
+        }
+        if(location.pathname.slice(0,18) == "/tournamentmanage"){
+            setIsTournamentManage(true);
         }
     },[])
 
@@ -59,17 +63,17 @@ function TournamentCard(){
                     <p>$500 <span className="hidden sm:inline">registration fee per team</span><span className="sm:hidden">/team</span></p>
                 </div>
                 <div className={`flex gap-5 ${isTournamentDetails ? "hidden" : ""}`}>
-                    <Link to="/tournamentdetails/0" className={`${isOrganizer ? "hidden" : ""}  p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}> {`${isMyRegistration ? "Details" : "Register"}`}</Link>
-                    <button className={`${isOrganizer ? "" : "hidden"} p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Edit</button>
+                    <Link to="/tournamentdetails/0" className={`${isOrganizer||isTournamentManage ? "hidden" : ""}  p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}> {`${isMyRegistration ? "Details" : "Register"}`}</Link>
+                    <Link to="/tournamentmanage" className={`${isOrganizer ? "" : "hidden"} p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Manage</Link>
                     <button className={`${isOrganizer ? "" : "hidden"} p-2 bg-white text-[#FF5A5F] rounded-lg border border-[#FF5A5F] transition ease-in-out hover:-translate-y-1`}>Delete</button>
                 </div>
             </div>
-            <div className={`${isTournamentDetails ? "" : "hidden"} grid gap-5 mb-10 md:mb-0`}>
+            <div className={`${isTournamentDetails||isTournamentManage ? "" : "hidden"} grid gap-5 mb-10 md:mb-0`}>
                 <h2 className="font-semibold">Description</h2>
                 <div>
                     <p>
                         CS2 Esports Tournament - $20,000 Prize Pool
-                        Compete in the ultimate CS2 esports tournament for a share of the $20,000 prize pool! With a thrilling single-elimination format, the tournament will feature top teams from around the world battling through intense matches. The tournament runs from January 10–22, 2024, with qualifiers leading to the main event. Teams must register by January 8, 2024, and comply with the event’s code of conduct. Don’t miss your chance to showcase your skills and claim the prize!
+                        Compete in the ultimate CS2 esports tournament for a share of the $20,000 prize pool! With a thrilling single-elimination format, the tournament will feature top teams from around the world battling through intense matches. The tournament runs from January 10-22, 2024, with qualifiers leading to the main event. Teams must register by January 8, 2024, and comply with the event's code of conduct. Don't miss your chance to showcase your skills and claim the prize!
                         Prize Pool Breakdown:
                             1st: $10,000
                             2nd: $5,000
@@ -77,8 +81,17 @@ function TournamentCard(){
                             4th: $2,000
                     </p>
                 </div>
-                <div className="flex justify-end">
+                <div className={` ${isTournamentManage ? "hidden":""} flex justify-end`}>
                     <Link to="" className={`p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}>Pay registration fee</Link>
+                </div>
+            </div>
+            <div className={` ${ isTournamentManage ? "" : "hidden"}`}>
+                <h2 className="font-semibold">Participants list</h2>
+                <div>
+                    <div className="flex gap-5">
+                        <h3>Alpha trion</h3>
+                        <p>alphatrion@yahoo.com</p>
+                    </div>
                 </div>
             </div>
         </div>
