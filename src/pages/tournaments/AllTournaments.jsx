@@ -1,11 +1,29 @@
 import TournamentCard from "../../components/cards/tournamentCard/tournamentCard.jsx"
-
+import { getAllTournamentsAPI } from "../../api/tournaments.js";
+import { useEffect, useState } from "react";
 function AllTournaments(){
+    
+    let [tournamentsArray, setTournamentsArray] = useState([]);
+
+    async function getAllTournamentsData(){
+        let data = await getAllTournamentsAPI();
+        // console.log(data.allTournaments);
+        setTournamentsArray(data.allTournaments);
+    }
+    
+    useEffect(()=>{
+        getAllTournamentsData();
+    },[0])
+    
+
     return(
         <div className="grid gap-5 md:grid-cols-8">
             <div className="col-span-5">
 
-                <TournamentCard/>
+                {tournamentsArray.map((tournamentData,index)=>(
+                    <TournamentCard data={tournamentData} key={index}/>
+                ))}
+                
 
             </div>
 

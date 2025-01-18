@@ -20,6 +20,8 @@ function SignIn(){
         let data = await signInAPI(signInCredentials);
         // console.log(data);
         if(data.code){
+            // Store token in localstorage
+            localStorage.setItem("token", data.token);
             navigate("/");
         }else{
             alert(data.msg);

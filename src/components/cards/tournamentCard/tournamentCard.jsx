@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 
-function TournamentCard(){
+function TournamentCard({data}){
+
+    // console.log(data);
 
     let location = useLocation();
     let [isOrganizer, setIsOrganizer] = useState(false)
@@ -29,8 +31,8 @@ function TournamentCard(){
         <div className="bg-white p-5 grid gap-2 border rounded-lg">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1>Counter Strike 2</h1>
-                    <p>Asia e-sports organization</p>
+                    <h1>{data.gameName}</h1>
+                    <p>{data.organizer}</p>
                 </div>
                 <div>
                     <img className="rounded-lg" src="/src/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
@@ -39,28 +41,28 @@ function TournamentCard(){
             <div className="flex gap-2 items-center">
                 <div className="hidden sm:flex gap-2 items-center">
                     <img className="max-w-[16px]" src="/src/assets/icons/location-icon.png" alt="Location Icon" />
-                    <p>Online</p>
-                    <p>Worldwide</p>
+                    <p>{data.gameMode}</p>
+                    <p>{data.location}</p>
                 </div>
                 <div className="flex gap-2 items-center">
                     <img className="max-w-[16px]" src="/src/assets/icons/wallet-icon.png" alt="Wallet Icon" />
-                    <p>$20k Prize pool</p>
+                    <p>{data.prizeAmount} Prize pool</p>
                 </div>
             </div>
             <div className="flex gap-2 items-center">
                 <div className="flex gap-2 items-center">
                     <img className="max-w-[16px]" src="/src/assets/icons/calendar-icon.png" alt="Calendar Icon" />
-                    <p>15-Aug-2025</p>
+                    <p>{data.date}</p>
                 </div>
                 <div className="flex gap-2 items-center">
                     <img className="max-w-[16px]" src="/src/assets/icons/clock-icon.png" alt="Clock Icon" />
-                    <p>06:00 PM</p>
+                    <p>{data.time}</p>
                 </div>
             </div>
             <div className="flex justify-between">
                 <div className="flex gap-2 items-center">
                     <img className="max-w-[16px]" src="/src/assets/icons/dollar-icon.png" alt="Dollar Icon" />
-                    <p>$500 <span className="hidden sm:inline">registration fee per team</span><span className="sm:hidden">/team</span></p>
+                    <p>{data.registrationFee} <span className="hidden sm:inline">registration fee per team</span><span className="sm:hidden">/team</span></p>
                 </div>
                 <div className={`flex gap-5 ${isTournamentDetails ? "hidden" : ""}`}>
                     <Link to="/tournamentdetails/0" className={`${isOrganizer||isTournamentManage ? "hidden" : ""}  p-2 bg-[#4C51BF] text-white rounded-lg transition ease-in-out hover:-translate-y-1`}> {`${isMyRegistration ? "Details" : "Register"}`}</Link>
