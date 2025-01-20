@@ -63,6 +63,9 @@ function SignUp(){
                             <label htmlFor="isOrganizer">Are you going to organize tournaments?</label>
                         </div>
                         <div className={`${isOrganizerValue ? "" : "hidden"} grid gap-5`}>
+                        <div>
+                                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="organizerName" type="text" placeholder="Organizer Name" value={userInput.organizerName || ""} onChange={handleChange}/>
+                            </div>
                             <div>
                                 <input className="p-2 border rounded-lg w-full text-center md:text-start" name="governmentId" type="text" placeholder="Government Id" value={userInput.governmentId || ""} onChange={handleChange}/>
                             </div>

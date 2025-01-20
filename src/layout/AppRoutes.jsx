@@ -21,7 +21,7 @@ function AppRoutes(){
                 <Route path="/" element={<ProtectedRoutes component={<Layout/>}/>}>
                     <Route index element={<AllTournaments/>}/>
                     <Route path="/alltournaments" element={<AllTournaments/>}/>
-                    <Route path="/tournamentdetails/:id" element={<TournamentDetails/>}/>
+                    <Route path="/tournamentdetails" element={<TournamentDetails/>}/>
                     <Route path="/myregistrations" element={<MyRegistrations/>}/>
                     <Route path="/myprofile" element={<MyProfile/>}/>
                     <Route path="/tournamentsiorganized" element={<TournamentsIOrganized/>}/>

@@ -9,7 +9,7 @@ function TournamentsIOrganized(){
 
     async function getAllTournamentsData(){
         let data = await tournamentsOrganizedAPI({emailId});
-        console.log(data.allTournaments);
+        // console.log(data.allTournaments);
         setTournamentsArray(data.allTournaments);
     }
     

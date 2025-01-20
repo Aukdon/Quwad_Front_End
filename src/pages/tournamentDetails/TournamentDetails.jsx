@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom"
+
+import { useLocation } from "react-router-dom"
 import TournamentCard from "../../components/cards/tournamentCard/tournamentCard.jsx"
 
 function TournamentDetails(){
+
+    const location = useLocation();
+    const data = location.state || {};
+    // console.log(data);
+    
     return(
         <div>
-            <TournamentCard/>
+            <TournamentCard data={data}/>
         </div>
     )
 };

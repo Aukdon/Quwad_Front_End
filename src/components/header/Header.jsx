@@ -10,8 +10,9 @@ function Header({data}){
 
     function handleSignOut(e){
         e.preventDefault();
-        localStorage.removeItem("emailId");
-        localStorage.removeItem("token");
+        localStorage.clear();
+        // localStorage.removeItem("emailId");
+        // localStorage.removeItem("token");
         navigate("/signin")
     }
 

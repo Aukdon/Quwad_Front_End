@@ -4,8 +4,9 @@ import { createTournament } from "../../../api/tournaments.js";
 function TournamentForm(){
 
     let emailId = localStorage.getItem("emailId");
+    let organizerName = localStorage.getItem("organizerName");
 
-    let [tournamentData, setTournamentData] = useState({emailId});
+    let [tournamentData, setTournamentData] = useState({emailId,organizerName});
 
     function handleChange(e){
         e.preventDefault();
@@ -33,9 +34,11 @@ function TournamentForm(){
             <div>
                 <input className="p-2 border rounded-lg w-full text-center md:text-start" name="gameName" type="text" placeholder="Game name" value={tournamentData.gameName||""} onChange={handleChange}/>
             </div>
+            
             <div>
-                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="organizer" type="text" placeholder="Organizer" value={tournamentData.organizer||""} onChange={handleChange}/>
+                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="organizer" type="text" placeholder="Organizer" value={(organizerName=="undefined") ? "Organizer Name" : organizerName} readOnly/>
             </div>
+
             <div>
                 <select className="p-2 border rounded-lg w-full text-center md:text-start" name="gameType" type="text" value={tournamentData.gameType||""} onChange={handleChange}>
                     <option value="">Select Game Type</option>

@@ -8,6 +8,7 @@ function ProtectedRoutes({component}){
 
         let token = jwtDecode(jwtToken);
         localStorage.setItem("emailId",token.emailId);
+        localStorage.setItem("organizerName",token.organizerName);
 
         if(token.isSignedIn) return component;
         else <Navigate to="/signin" />;
