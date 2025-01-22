@@ -92,23 +92,23 @@ function TournamentCard({data}){
                     <p>{data.location}</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                    <img className="max-w-[16px]" src="/src/assets/icons/wallet-icon.png" alt="Wallet Icon" />
+                    <img className="max-w-[16px]" src="/assets/icons/wallet-icon.png" alt="Wallet Icon" />
                     <p>{data.prizeAmount} Prize pool</p>
                 </div>
             </div>
             <div className="flex gap-2 items-center">
                 <div className="flex gap-2 items-center">
-                    <img className="max-w-[16px]" src="/src/assets/icons/calendar-icon.png" alt="Calendar Icon" />
+                    <img className="max-w-[16px]" src="/assets/icons/calendar-icon.png" alt="Calendar Icon" />
                     <p>{data.date}</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                    <img className="max-w-[16px]" src="/src/assets/icons/clock-icon.png" alt="Clock Icon" />
+                    <img className="max-w-[16px]" src="/assets/icons/clock-icon.png" alt="Clock Icon" />
                     <p>{data.time}</p>
                 </div>
             </div>
             <div className="flex justify-between">
                 <div className="flex gap-2 items-center">
-                    <img className="max-w-[16px]" src="/src/assets/icons/dollar-icon.png" alt="Dollar Icon" />
+                    <img className="max-w-[16px]" src="/assets/icons/dollar-icon.png" alt="Dollar Icon" />
                     <p>{data.registrationFee} <span className="hidden sm:inline">registration fee per team</span><span className="sm:hidden">/team</span></p>
                 </div>
                 <div className={`flex gap-5 ${isTournamentDetails ? "hidden" : ""}`}>

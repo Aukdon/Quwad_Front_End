@@ -16,7 +16,7 @@ function HomePage(){
                 
                 <section className="grid md:grid-cols-2 items-center">
                     <div className="flex justify-center md:block">
-                        <img className="rounded-lg" src="/src/assets/images/gaming-console-image.png" alt="Game console image." />
+                        <img className="rounded-lg" src="/assets/images/gaming-console-image.png" alt="Game console image." />
                     </div>
                     <div className="grid gap-5">
                         <h1 className="text-[32px]">Quwad</h1>
@@ -41,7 +41,7 @@ function HomePage(){
                         </div>
                     </div>
                     <div className="flex justify-center md:justify-end">
-                        <img className="rounded-lg" src="/src/assets/images/registration-image.png" alt="Registration image." />
+                        <img className="rounded-lg" src="/assets/images/registration-image.png" alt="Registration image." />
                     </div>
 
                 </section>
@@ -62,7 +62,7 @@ function HomePage(){
                                 </ul>
 
                                 <div className="max-w-[200px]">
-                                    <img className="w-full" src="/src/assets/images/developer-workstation-image.png" alt="Developer at workstation image." />
+                                    <img className="w-full" src="/assets/images/developer-workstation-image.png" alt="Developer at workstation image." />
                                 </div>
 
                             </div>
@@ -78,7 +78,7 @@ function HomePage(){
                                 </ul>
 
                                 <div className="max-w-[200px]">
-                                    <img className="w-full" src="/src/assets/images/card-mobile-payment-image.png" alt="Developer at workstation image." />
+                                    <img className="w-full" src="/assets/images/card-mobile-payment-image.png" alt="Developer at workstation image." />
                                 </div>
 
                             </div>
