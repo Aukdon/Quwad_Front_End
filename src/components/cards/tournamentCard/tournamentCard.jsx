@@ -82,7 +82,7 @@ function TournamentCard({data}){
                     <p>{data.organizer}</p>
                 </div>
                 <div>
-                    <img className="rounded-lg" src="./src/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
+                    <img className="rounded-lg" src="/src/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
                 </div>
             </div>
             <div className="flex gap-2 items-center">
