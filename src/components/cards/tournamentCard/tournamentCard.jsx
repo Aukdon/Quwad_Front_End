@@ -82,12 +82,12 @@ function TournamentCard({data}){
                     <p>{data.organizer}</p>
                 </div>
                 <div>
-                    <img className="rounded-lg" src="/public/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
+                    <img className="rounded-lg" src="/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
                 </div>
             </div>
             <div className="flex gap-2 items-center">
                 <div className="hidden sm:flex gap-2 items-center">
-                    <img className="max-w-[16px]" src="/src/assets/icons/location-icon.png" alt="Location Icon" />
+                    <img className="max-w-[16px]" src="/assets/icons/location-icon.png" alt="Location Icon" />
                     <p>{data.gameMode}</p>
                     <p>{data.location}</p>
                 </div>
