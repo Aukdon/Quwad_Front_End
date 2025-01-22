@@ -15,14 +15,14 @@ function HomePage(){
             <section className="col-start-2 col-span-10 grid gap-20 text-center md:text-start">
                 
                 <section className="grid md:grid-cols-2 items-center">
-                    <div className="flex justify-center md:block">
-                        <img className="rounded-lg" src="/assets/images/gaming-console-image.png" alt="Game console image." />
+                    <div className="flex justify-center">
+                        <img className="rounded-lg md:max-w-[400px]" src="/assets/images/sportsImages-transparentBackground.png" alt="Game console image." />
                     </div>
-                    <div className="grid gap-5">
+                    <div className="grid gap-5 md:text-end">
                         <h1 className="text-[32px]">Quwad</h1>
                         <div className="text-[24px]">
-                            <h1>The Ultimate Platform for Every Sport.</h1>
-                            <h1>Application for organizing and participating in tournaments.</h1>
+                            <h1>Join your favorite tournaments or create and organize your own—compete and connect with players worldwide.</h1>
+                            <p className="text-[16px]">The Ultimate Platform for Every Sport.</p>
                         </div>
                         <div className="lg:hidden flex gap-5 justify-center">
                             <Link to="/signin" className={`p-2 bg-[#4C51BF] text-white border rounded-lg hover:border-[#4C51BF] hover:bg-white hover:text-[#4C51BF] flex items-center`}>Sign in</Link>
@@ -31,10 +31,10 @@ function HomePage(){
                     </div>
                 </section>
 
-                <section className="grid md:grid-cols-2 items-center">
+                <section className="grid md:grid-cols-2 items-center bg-[#fff] md:p-5">
     
                     <div className="grid gap-5">
-                        <h1 className="text-[32px]">Seamless Tournament Registration in One Place</h1>
+                        <h1 className="text-[32px]">Seamless tournament registration and management</h1>
                         <div className="">
                             <h1>Easily discover and register for the sports tournaments that interest you.</h1>
                             <h1>Browse and join tournaments based on your preferred device category, all in a seamless, user-friendly experience.</h1>
@@ -48,15 +48,15 @@ function HomePage(){
 
                 <section className="grid gap-5 items-center">
 
-                    <h1 className="text-[32px]">Organisers and payments</h1>
+                    <h1 className="text-[32px]">Organizers and payments</h1>
 
                     <div className="md:flex justify-between">
                         
                         <div className="p-5 bg-white border rounded-lg">
-                            <h1 className="text-[20px]">We are looking for organisers</h1>
+                            <h1 className="text-[20px]">We are looking for organizers</h1>
                             <div className="flex gap-5 justify-between items-center">
                                 <ul className="text-start">
-                                    <li>Organiser registration</li>
+                                    <li>Organizer registration</li>
                                     <li>Earning potential</li>
                                     <li>Required documents</li>
                                 </ul>

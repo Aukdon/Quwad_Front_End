@@ -8,6 +8,7 @@ async function getUserDetails(payload){
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body : JSON.stringify(payload),
     });
@@ -22,6 +23,7 @@ async function updateUserProfile({...payload}) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body : JSON.stringify(payload),
     });
@@ -37,6 +39,7 @@ async function updateMyRegistations({...payload}) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify(payload)
     });
@@ -49,7 +52,8 @@ async function fetchMyRegistrations({...payload}){
     let res = await fetch(`${usersURL}/myregistrations?emailId=${payload.emailId}`, {
         method: "GET",
         headers: {
-            "Content-type": "application/json"
+            "Content-type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
     });
 

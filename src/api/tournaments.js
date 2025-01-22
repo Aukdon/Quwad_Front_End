@@ -7,6 +7,7 @@ async function getAllTournamentsAPI(){
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
     });
 
@@ -18,7 +19,8 @@ async function createTournament(payload) {
     let res = await fetch(tournamentURL, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify(payload),
     }); 
@@ -33,7 +35,8 @@ async function tournamentsOrganizedAPI(payload) {
     let res = await fetch(`${tournamentURL}/organizedtournaments`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify(payload),
     }); 
@@ -48,7 +51,8 @@ async function updateTournament({...payload}) {
     let res = await fetch(`${tournamentURL}/${payload.id}`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify(payload),
     });
@@ -60,7 +64,8 @@ async function deleteTournament({...payload}) {
     let res = await fetch(tournamentURL, {
         method: "DELETE",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify(payload),
     });

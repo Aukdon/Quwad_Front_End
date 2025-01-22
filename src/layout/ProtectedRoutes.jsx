@@ -19,10 +19,10 @@ function ProtectedRoutes({component}){
         
 
         if(token.isSignedIn) return component;
-        else <Navigate to="/signin" />;
+        else <Navigate to="/home" />;
 
     } catch (error) {
-        return <Navigate to="/signin" />
+        return <Navigate to="/home" />
     }
 }
 export default ProtectedRoutes
