@@ -12,7 +12,7 @@ function MyProfile(){
 
             <div className="p-5 bg-white border rounded-lg">
                 <p>For any enquiries.</p>
-                <p>Contact us: </p>
+                <p>Contact us: Email</p>
             </div>
         </div>
     )

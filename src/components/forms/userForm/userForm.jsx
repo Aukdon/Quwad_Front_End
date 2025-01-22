@@ -84,6 +84,9 @@ function UserForm({data}){
                     <div>
                         <input className="p-2 border rounded-lg w-full text-center md:text-start" name="organizerName" type="text" placeholder="Organizer Name" value={userInput.organizerName || ""} onChange={handleChange}/>
                     </div>
+                    {/* <div>
+                        <input className="p-2 border rounded-lg w-full text-center md:text-start" name="organizerName" type="text" placeholder="Organizer Unique Id. No empty spaces." value={userInput.organizerId || ""} onChange={handleChange}/>
+                    </div> */}
                     <div>
                         <input className="p-2 border rounded-lg w-full text-center md:text-start" name="governmentId" type="text" placeholder="Government Id" value={userInput.governmentId || ""} onChange={handleChange}/>
                     </div>

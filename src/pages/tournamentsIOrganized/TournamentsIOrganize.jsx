@@ -2,15 +2,24 @@ import TournamentCard from "../../components/cards/tournamentCard/tournamentCard
 import TournamentForm from "../../components/forms/tournamentForm/TournamentForm.jsx"
 import { tournamentsOrganizedAPI } from "../../api/tournaments.js";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function TournamentsIOrganized(){
 
     let emailId = localStorage.getItem("emailId");
     let [tournamentsArray, setTournamentsArray] = useState([]);
 
+    let navigate = useNavigate();
+
     async function getAllTournamentsData(){
         let data = await tournamentsOrganizedAPI({emailId});
-        // console.log(data.allTournaments);
-        setTournamentsArray(data.allTournaments);
+        // console.log(data);
+        if(data.code == 1){
+            setTournamentsArray(data.allTournaments);
+        }else{
+            alert(data.msg);
+            navigate("/myprofile");
+        }
+        
     }
     
     useEffect(()=>{

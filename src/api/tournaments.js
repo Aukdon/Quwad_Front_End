@@ -26,6 +26,7 @@ async function createTournament(payload) {
     return data; 
 };
 
+// Get all tournaments organized by a user.
 async function tournamentsOrganizedAPI(payload) {
     // console.log(payload);
     

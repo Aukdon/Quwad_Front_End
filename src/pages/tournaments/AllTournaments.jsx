@@ -28,7 +28,9 @@ function AllTournaments(){
             </div>
 
             <div className="hidden md:block col-span-3">
+                
                 <div className="bg-white p-5 grid gap-2 border rounded-lg text-[14px] lg:text-[1rem]">
+                    <p className="text-[10px] flex justify-end">Promoted</p>
                     <div className="xl:flex gap-5 items-center">
                         <div>
                             <img className="rounded-lg" src="/src/assets/icons/e-sports-icon.png" alt="E Sports Icon." />
