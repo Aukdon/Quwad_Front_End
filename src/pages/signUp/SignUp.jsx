@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signUpAPI } from "../../api/authentication.js";
+import AlertCard from "../../components/cards/alertCard/alertCard.jsx";
+import { useDispatch } from "react-redux";
 
 function SignUp(){
 
@@ -9,6 +11,8 @@ function SignUp(){
     let [userInput, setUserInput] = useState({isOrganizer:false})
 
     let navigate = useNavigate();
+
+    let dispatch = useDispatch();
 
     function handleOrganizerValue(){
         setIsOrganizerValue(!isOrganizerValue);
@@ -26,7 +30,8 @@ function SignUp(){
         if(data.code){
             navigate("/signin")
         }else{
-            alert(data.msg);
+            // alert(data.msg);
+            dispatch({type:"displayAlert", message:data.msg});
         }
     }
 
@@ -39,6 +44,8 @@ function SignUp(){
 
     return(
         <div className="grid grid-cols-12 min-h-dvh items-center text-center md:text-start">
+
+            <AlertCard />
             
             <div className="col-start-3 col-span-8 grid gap-5 md:grid-cols-2 items-center">
                 <div>

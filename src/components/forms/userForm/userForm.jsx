@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getUserDetails, updateUserProfile } from "../../../api/users.js";
+import { useDispatch } from "react-redux";
 
 
 function UserForm({data}){
@@ -11,12 +12,19 @@ function UserForm({data}){
 
     let [userInput, setUserInput] = useState({})
 
+    let dispatch = useDispatch()
+
     async function getProfileData() {
         // console.log({emailId});
+
+        dispatch({type: "displayLoading"})
         
         let data = await getUserDetails({emailId});
         // console.log(data.userObject);
         setUserInput(data.userObject);
+
+        dispatch({type: "resetLoading"})
+
     }
 
 

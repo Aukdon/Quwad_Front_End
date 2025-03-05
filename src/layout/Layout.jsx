@@ -1,5 +1,7 @@
 import { Link, Outlet } from"react-router-dom";
 import Header from "../components/header/Header.jsx";
+import AlertCard from "../components/cards/alertCard/alertCard.jsx";
+import LoadingCard from "../components/cards/loadingCard/loadingCard.jsx";
 
 function Layout(){
     let data = {
@@ -9,8 +11,13 @@ function Layout(){
 
         <div className="p-5 md:p-0 md:grid grid-cols-12 gap-5">
 
+
             {/* Header Section */}
             <Header data={data}/>
+
+            <AlertCard/>
+
+            <LoadingCard />
 
             {/* Side bar section */}
             <section className="p-5 col-start-2 col-span-2 bg-white border rounded-lg min-h-dvh hidden md:block">
@@ -33,7 +40,7 @@ function Layout(){
             </section>
 
             {/* Content section */}
-            <section className="col-span-8">
+            <section className="col-span-8 pb-10">
                 <Outlet/>
             </section>
 
@@ -42,7 +49,8 @@ function Layout(){
                 <div className="p-2 bg-white border rounded-lg">
                     <ul className="flex justify-between">
                         <li><Link to="/alltournaments">Home</Link></li>
-                        <li><Link to="/myregistrations">Registations</Link></li>
+                        <li><Link to="/myregistrations">My Regisration</Link></li>
+                        <li><Link to="/tournamentsiorganized">Organize</Link></li>
                         <li><Link to="/myprofile">Profile</Link></li>
                     </ul>
                 </div>

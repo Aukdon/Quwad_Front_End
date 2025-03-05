@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import { fetchMyRegistrations } from "../../api/users.js";
 import TournamentCard from "../../components/cards/tournamentCard/tournamentCard.jsx"
+import { useDispatch } from "react-redux";
 
 function MyRegistrations(){
 
     let emailId = localStorage.getItem("emailId");
 
     let [tournamentsArray, setTournamentsArray] = useState([]);
+
+    let dispatch = useDispatch();
     
     async function getMyRegistration(){
+        dispatch({type: "displayLoading"})
         let data = await fetchMyRegistrations({emailId})
         setTournamentsArray(data.data);
+        if(data) dispatch({type: "resetLoading"})
     };
 
     useEffect(()=>{

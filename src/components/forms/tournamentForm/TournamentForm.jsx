@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { createTournament } from "../../../api/tournaments.js";
+import { useDispatch } from "react-redux";
 
 function TournamentForm(){
+
+    let dispatch = useDispatch()
 
     let emailId = localStorage.getItem("emailId");
     let organizerName = localStorage.getItem("organizerName");
@@ -25,7 +28,9 @@ function TournamentForm(){
             console.log(data.msg);
             setTournamentData({});
         }else{
-            alert(data.msg);
+            // alert(data.msg);
+            dispatch({type:"displayAlert", message: data.msg});
+            
         }
     }
 
@@ -67,6 +72,9 @@ function TournamentForm(){
             </div>
             <div>
                 <input className="p-2 border rounded-lg w-full text-center md:text-start" name="registrationFee" type="number" placeholder="Set registration fee" value={tournamentData.registrationFee||""} onChange={handleChange}/>
+            </div>
+            <div>
+                <input className="p-2 border rounded-lg w-full text-center md:text-start" name="totalSlots" type="number" placeholder="Total slots available" value={tournamentData.totalSlots||""} onChange={handleChange}/>
             </div>
 
             <div className="flex justify-center">

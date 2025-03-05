@@ -1,14 +1,22 @@
 import TournamentCard from "../../components/cards/tournamentCard/tournamentCard.jsx"
 import { getAllTournamentsAPI } from "../../api/tournaments.js";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 function AllTournaments(){
     
     let [tournamentsArray, setTournamentsArray] = useState([]);
 
+    let dispatch = useDispatch();
+
     async function getAllTournamentsData(){
+
+        dispatch({type:"displayLoading"})
+        
         let data = await getAllTournamentsAPI();
         // console.log(data.allTournaments);
         setTournamentsArray(data.allTournaments);
+
+        if(data) dispatch({type:"resetLoading"})
     }
     
     useEffect(()=>{
@@ -18,16 +26,23 @@ function AllTournaments(){
 
     return(
         <div className="grid gap-5 md:grid-cols-8">
-            <div className="col-span-5">
 
-                {tournamentsArray.map((tournamentData,index)=>(
-                    <TournamentCard data={tournamentData} key={index}/>
-                ))}
-                
+            {/* Mobile page title */}
+            <div className="md:hidden ">
+                <h1 className="text-center">All tournament</h1>
+            </div>
+            
+            <div className="md:col-span-5">
+
+                <div className="grid gap-2">
+                    {tournamentsArray.map((tournamentData,index)=>(
+                        <TournamentCard data={tournamentData} key={index}/>
+                    ))}
+                </div>                
 
             </div>
 
-            <div className="hidden md:block col-span-3">
+            <div className="hidden md:block md:col-span-3">
                 
                 <div className="bg-white p-5 grid gap-2 border rounded-lg text-[14px] lg:text-[1rem]">
                     <p className="text-[10px] flex justify-end">Promoted</p>

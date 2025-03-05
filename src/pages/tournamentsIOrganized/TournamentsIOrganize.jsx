@@ -3,14 +3,18 @@ import TournamentForm from "../../components/forms/tournamentForm/TournamentForm
 import { tournamentsOrganizedAPI } from "../../api/tournaments.js";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 function TournamentsIOrganized(){
 
     let emailId = localStorage.getItem("emailId");
     let [tournamentsArray, setTournamentsArray] = useState([]);
 
     let navigate = useNavigate();
+    let dispatch = useDispatch();
 
     async function getAllTournamentsData(){
+
+        dispatch({type: "displayLoading"})
         let data = await tournamentsOrganizedAPI({emailId});
         // console.log(data);
         if(data.code == 1){
@@ -19,6 +23,8 @@ function TournamentsIOrganized(){
             alert(data.msg);
             navigate("/myprofile");
         }
+
+        if(data) dispatch({type: "resetLoading"})
         
     }
     

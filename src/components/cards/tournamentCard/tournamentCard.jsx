@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { updateMyRegistations } from "../../../api/users.js";
 import { deleteTournament, updateTournament } from "../../../api/tournaments.js";
+import { useDispatch } from "react-redux";
 
 function TournamentCard({data}){
 
     // console.log(data);
+
+    let dispatch = useDispatch();
 
     let emailId = localStorage.getItem("emailId");
 
@@ -24,7 +27,8 @@ function TournamentCard({data}){
         if(resData.code === 1){
             alert(resData.msg);
         }else{
-            alert(resData.msg);
+            // alert(resData.msg);
+            dispatch({type:"displayAlert", message: resData.msg});
         }
     };
     
