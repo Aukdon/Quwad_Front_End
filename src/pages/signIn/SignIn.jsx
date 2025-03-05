@@ -3,6 +3,7 @@ import { useState } from "react";
 import { signInAPI } from "../../api/authentication.js";
 import { useDispatch } from "react-redux";
 import AlertCard from "../../components/cards/alertCard/alertCard.jsx";
+import LoadingCard from "../../components/cards/loadingCard/loadingCard.jsx";
 
 function SignIn(){
 
@@ -21,8 +22,14 @@ function SignIn(){
     async function handleSignIn(e){
         e.preventDefault();
         // console.log(signInCredentials);
+
+        dispatch({type: "displayLoading"})
+
         let data = await signInAPI(signInCredentials);
         // console.log(data);
+
+        if (data) dispatch({type: "resetLoading"})
+
         if(data.code){
             // Store token in localstorage
             localStorage.setItem("token", data.token);
@@ -32,12 +39,15 @@ function SignIn(){
             // alert(data.msg);
             dispatch({type:"displayAlert", message:data.msg});
         }
+
+        
     }
 
     return(
         <div className="grid grid-cols-12 min-h-dvh items-center text-center md:text-start">
 
             <AlertCard />
+            <LoadingCard />
             
             <div className="col-start-3 col-span-8 grid gap-5 md:grid-cols-2 items-center">
                 <div>
